@@ -1,1 +1,6 @@
 ---
+
+- name: KAFKA ADMIN | Install and configure nginx
+  import_tasks: nginx.yml
+  tags:
+    - nginx
