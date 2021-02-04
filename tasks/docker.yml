@@ -25,7 +25,7 @@
 
 - name: KAFKA ADMIN | DOCKER | Create docker-compose systemd unit
   copy:
-    src: systemd/systemd/docker-compose@.service
+    src: systemd/docker-compose@.service
     dest: /lib/systemd/system/docker-compose@.service
     owner: root
     group: root
