@@ -20,7 +20,7 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart mginx
+  notify: restart nginx
 
 - name: KAFKA ADMIN | NGINX | Flush handlers
   meta: flush_handlers
