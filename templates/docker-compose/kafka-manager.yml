@@ -1,4 +1,4 @@
-# /etc/docker/compose/kafka-manager/docker-compose.yml
+# {{ ansible_managed }}
 version: '3.6'
 services:
   kafka_manager:
@@ -6,6 +6,6 @@ services:
     ports:
       - "9000:9000"
     environment:
-      ZK_HOSTS: "172.31.9.21:2181"
+      ZK_HOSTS: "{{ kafka_admin_zookeeper_hosts }}"
       APPLICATION_SECRET: "random-secret"
     command: -Dpidfile.path=/dev/null

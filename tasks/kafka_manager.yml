@@ -10,7 +10,7 @@
     mode: '0755'
 
 - name: KAFKA ADMIN | KAFKA MANAGER | Create docker-compose file
-  copy:
+  template:
     src: docker-compose/kafka-manager.yml
     dest: /etc/docker/compose/kafka-manager/docker-compose.yml
     owner: root

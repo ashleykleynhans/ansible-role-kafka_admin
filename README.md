@@ -23,7 +23,9 @@ server as follows:
 
 ## Role Variables
 
-TODO
+kafka_admin_zookeeper_hosts: 127.0.0.1:2181
+
+This is a comma separated list of your zookeeper hosts.
 
 ## Dependencies
 
