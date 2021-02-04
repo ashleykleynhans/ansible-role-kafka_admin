@@ -20,7 +20,7 @@
 - name: KAFKA ADMIN | ZOONAVIGATOR | Enable Zoonavigator
   service:
     name: docker-compose@zoonavigator
-    state: enabled
+    enabled: yes
 
 - name: KAFKA ADMIN | ZOONAVIGATOR | Start Zoonavigator
   service:

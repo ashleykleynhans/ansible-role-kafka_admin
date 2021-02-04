@@ -20,7 +20,7 @@
 - name: KAFKA ADMIN | KAFKA MANAGER | Enable kafka-manager
   service:
     name: docker-compose@kafka-manager
-    state: enabled
+    enabled: yes
 
 - name: KAFKA ADMIN | KAFKA MANAGER | Start kafka-manager
   service:
