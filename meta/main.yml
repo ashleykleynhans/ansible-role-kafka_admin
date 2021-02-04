@@ -1,0 +1,10 @@
+galaxy_info:
+  author: Ashley Kleynhans
+  description: Ansible role to configure various admin tools for Apache Kafka such as Zoonavigator, Kafka Manager etc
+  company: Personal
+  license: GPLv2
+  min_ansible_version: 2.9
+  galaxy_tags:
+    - kafka
+    - admin
+dependencies: []
