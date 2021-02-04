@@ -1,0 +1,28 @@
+---
+
+- name: KAFKA ADMIN | ZOONAVIGATOR | Ensure /etc/docker/compose/zoonavigator exists
+  file:
+    path: /etc/docker/compose/zoonavigator
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: KAFKA ADMIN | ZOONAVIGATOR | Create docker-compose file
+  copy:
+    src: docker-compose/zoonavigator.yml
+    dest: /etc/docker/compose/zoonavigator/docker-compose.yml
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: KAFKA ADMIN | ZOONAVIGATOR | Enable Zoonavigator
+  service:
+    name: docker-compose@zoonavigator
+    state: enabled
+
+- name: KAFKA ADMIN | ZOONAVIGATOR | Start Zoonavigator
+  service:
+    name: docker-compose@zoonavigator
+    state: started

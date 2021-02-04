@@ -9,3 +9,13 @@
   import_tasks: docker.yml
   tags:
     - docker
+
+- name: KAFKA ADMIN | Install Zoonavigator
+  import_tasks: zoonavigator.yml
+  tags:
+    - zoonavigator
+
+- name: KAFKA ADMIN | Install Kafka Manager
+  import_tasks: kafka_manager.yml
+  tags:
+    - kafka_manager
