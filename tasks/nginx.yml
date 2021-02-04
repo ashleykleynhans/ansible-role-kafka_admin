@@ -22,5 +22,15 @@
     mode: '0644'
   notify: restart nginx
 
+- name: KAFKA ADMIN | NGINX | Enable nginx
+  service:
+    name: nginx
+    enabled: yes
+
+- name: KAFKA ADMIN | NGINX | Start nginx
+  service:
+    name: nginx
+    state: started
+
 - name: KAFKA ADMIN | NGINX | Flush handlers
   meta: flush_handlers

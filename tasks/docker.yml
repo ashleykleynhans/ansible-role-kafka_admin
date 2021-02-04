@@ -12,3 +12,13 @@
     owner: root
     group: root
     mode: '0755'
+
+- name: KAFKA ADMIN | DOCKER | Enable docker
+  service:
+    name: docker
+    enabled: yes
+
+- name: KAFKA ADMIN | DOCKER | Start docker
+  service:
+    name: docker
+    state: started
