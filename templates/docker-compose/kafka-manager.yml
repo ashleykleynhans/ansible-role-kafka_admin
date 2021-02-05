@@ -2,6 +2,7 @@
 version: '3.6'
 services:
   kafka_manager:
+    network_mode: bridge
     image: hlebalbau/kafka-manager:1.3.3.18
     ports:
       - "9000:9000"
