@@ -1,0 +1,4 @@
+[Service]
+Environment="http_proxy=http://{{ proxy_ip }}:{{ proxy_port }}/"
+Environment="https_proxy=http://{{ proxy_ip }}:{{ proxy_port }}/"
+Environment="no_proxy={{ no_proxy | join(',')  }}

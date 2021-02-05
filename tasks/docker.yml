@@ -1,32 +1,44 @@
 ---
 
-- name: KAFKA ADMIN | DOCKER | Install docker
-  package:
-    name: docker
-    state: present
+- name: KAFKA ADMIN | DOCKER | Include geerlingguy.docker
+  import_role:
+    name: geerlingguy.docker
 
-- name: KAFKA ADMIN | DOCKER | Install docker-compose
-  get_url:
-    url: "https://github.com/docker/compose/releases/download/1.28.2/docker-compose-Linux-x86_64"
-    dest: /usr/local/bin/docker-compose
+- name: KAFKA ADMIN | DOCKER | Template in /etc/docker/daemon.json
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart docker
+
+- name: KAFKA ADMIN | DOCKER | Ensure /etc/systemd/system/docker.service.d exists
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
     owner: root
     group: root
     mode: '0755'
 
-- name: KAFKA ADMIN | DOCKER | Enable docker
-  service:
-    name: docker
-    enabled: yes
-
-- name: KAFKA ADMIN | DOCKER | Start docker
-  service:
-    name: docker
-    state: started
+- name: KAFKA ADMIN | DOCKER | Template in /etc/systemd/system/docker.service.d/http-proxy.conf
+  template:
+    src: http-proxy.conf.j2
+    dest: /etc/systemd/system/docker.service.d/http-proxy.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart docker
 
 - name: KAFKA ADMIN | DOCKER | Create docker-compose systemd unit
   copy:
     src: systemd/docker-compose@.service
-    dest: /lib/systemd/system/docker-compose@.service
+    dest: /etc/systemd/system/docker-compose@.service
     owner: root
     group: root
     mode: '0755'
+
+- name: KAFKA ADMIN | DOCKER | Flush handlers
+  meta: flush_handlers

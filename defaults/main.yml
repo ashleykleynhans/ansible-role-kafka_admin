@@ -1,3 +1,4 @@
 ---
 
 kafka_admin_zookeeper_hosts: 127.0.0.1:2181
+kafka_admin_docker_compose_version: 1.28.2

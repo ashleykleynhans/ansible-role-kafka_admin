@@ -29,7 +29,7 @@ This is a comma separated list of your zookeeper hosts.
 
 ## Dependencies
 
-NONE
+- geerlingguy.docker
 
 ## Example Playbook
 
