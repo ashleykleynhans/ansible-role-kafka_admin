@@ -16,13 +16,14 @@
     owner: root
     group: root
     mode: '0755'
+  notify:
+    - restart kafka-manager
 
-- name: KAFKA ADMIN | KAFKA MANAGER | Enable kafka-manager
-  service:
-    name: docker-compose@kafka-manager
-    enabled: yes
-
-- name: KAFKA ADMIN | KAFKA MANAGER | Start kafka-manager
+- name: KAFKA ADMIN | KAFKA MANAGER | Enable and start kafka-manager
   service:
     name: docker-compose@kafka-manager
     state: started
+    enabled: yes
+
+- name: KAFKA ADMIN | KAFKA MANAGER | Flush handlers
+  meta: flush_handlers

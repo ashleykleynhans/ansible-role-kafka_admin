@@ -16,13 +16,14 @@
     owner: root
     group: root
     mode: '0755'
+  notify:
+    - restart zoonavigator
 
-- name: KAFKA ADMIN | ZOONAVIGATOR | Enable Zoonavigator
-  service:
-    name: docker-compose@zoonavigator
-    enabled: yes
-
-- name: KAFKA ADMIN | ZOONAVIGATOR | Start Zoonavigator
+- name: KAFKA ADMIN | ZOONAVIGATOR | Enable and start Zoonavigator
   service:
     name: docker-compose@zoonavigator
     state: started
+    enabled: yes
+
+- name: KAFKA ADMIN | ZOONAVIGATOR | Flush handlers
+  meta: flush_handlers

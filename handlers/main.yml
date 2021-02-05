@@ -10,3 +10,15 @@
     name: docker
     state: restarted
     daemon_reload: yes
+
+- name: restart zoonavigator
+  systemd:
+    name: docker-compose@zoonavigator
+    state: restarted
+    daemon_reload: yes
+
+- name: restart kafka-manager
+  systemd:
+    name: docker-compose@kafka-manager
+    state: restarted
+    daemon_reload: yes
