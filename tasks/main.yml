@@ -1,10 +1,5 @@
 ---
 
-- name: KAFKA ADMIN | Install and configure nginx
-  import_tasks: nginx.yml
-  tags:
-    - nginx
-
 - name: KAFKA ADMIN | Install docker and docker-compose
   import_tasks: docker.yml
   tags:

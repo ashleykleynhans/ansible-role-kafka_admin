@@ -29,6 +29,7 @@ This is a comma separated list of your zookeeper hosts.
 
 ## Dependencies
 
+- geerlingguy.nginx
 - geerlingguy.docker
 
 ## Example Playbook
